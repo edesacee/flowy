@@ -1,2 +1,2 @@
 # flowy
-My first wordpress theme
+Flowy is a work in progress WordPress Theme.
