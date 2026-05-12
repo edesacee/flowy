@@ -81,56 +81,6 @@ class Flowyth_Customizer extends flowyth\Main {
         )));        
 	}
 
-	public static function headerSettings($wp_customize) {
-        $wp_customize->add_setting('header_logo', array('default' => false));
-        $wp_customize->add_setting('header_bg', array('default' => DEF_HEADER_BG));
-        $wp_customize->add_setting('menu_item_text_color', array('default' => ''));
-        $wp_customize->add_setting('menu_item_hover_color', array('default' => ''));
-
-        //Section
-        $wp_customize->add_section(
-            'ect-header',
-            array(
-                'title' => __('Header Settings', '_s'),
-                'priority' => 150,
-                // 'description' => __('', '_s' )
-        ));
-
-        //Control
-        // $wp_customize->add_control(
-        //     new WP_Customize_Media_Control(
-        //         $wp_customize, 'header_logo', 
-        //         array(
-        //             'label' => __('Logo', 'theme_textdomain'),
-        //             'section' => 'ect-header',
-        //             'mime_type' => 'image',
-        // )));
-
-        $wp_customize->add_control(
-            new WP_Customize_Color_Control(
-                $wp_customize, 'header_bg', 
-                array(
-                    'label' => __( 'Background Color', 'theme_textdomain' ),
-                    'section' => 'ect-header',
-        )));    
-
-        $wp_customize->add_control(
-            new WP_Customize_Color_Control(
-                $wp_customize, 'menu_item_text_color', 
-                array(
-                    'label' => __('Menu Item Text Color', 'theme_textdomain'),
-                    'section' => 'ect-header',
-        )));
-
-        $wp_customize->add_control(
-            new WP_Customize_Color_Control(
-                $wp_customize, 'menu_item_hover_color', 
-                array(
-                    'label' => __('Menu Item Hover Color', 'theme_textdomain'),
-                    'section' => 'ect-header',
-        )));
-	}
-
 	public static function footerSettings($wp_customize) {
         $wp_customize->add_setting('enable_instagram', array('default' => false));
         $wp_customize->add_setting('enable_facebook', array('default' => false));
@@ -139,12 +89,6 @@ class Flowyth_Customizer extends flowyth\Main {
         $wp_customize->add_setting('enable_twitter', array('default' => false));
         $wp_customize->add_setting('enable_tiktok', array('default' => false));
         $wp_customize->add_setting('copyright_text', array('default' => 'Copyright 2025 © EC Theme'));
-        $wp_customize->add_setting('footer_bg', array( 'default' => DEF_FOOTER_BG));
-        $wp_customize->add_setting('menu_item_text_color2', array('default' => '#000'));
-        $wp_customize->add_setting('menu_item_hover_color2', array('default' => '#444'));
-        $wp_customize->add_setting('social_icon_color', array('default' => '#000'));
-        $wp_customize->add_setting('social_icon_hover_color', array('default' => '#444'));
-        $wp_customize->add_setting('copyright_text_color', array('default' => '#000'));
 
         $wp_customize->add_setting('flowy_footer_company_name', array('default' => 'Company Name'));
         $wp_customize->add_setting('flowy_footer_company_description', array('default' => '{enter address or company details}'));
@@ -154,29 +98,9 @@ class Flowyth_Customizer extends flowyth\Main {
             'ect-footer',
             array(
                 'title' => __( 'Footer Settings', '_s' ),
-                'priority' => 150,
+                'priority' => 139,
                 // 'description' => __( 'Enter the URL to your accounts for each social media for the icon to appear in the header.', '_s' )
-        ));
-
-        $wp_customize->add_control(
-            new WP_Customize_Control(
-                $wp_customize, 'copyright_text',
-                array(
-                    'label'      => __( 'Copyright Text', 'textdomain' ),
-                    // 'description' => __( '....', 'textdomain' ),
-                    'settings'   => 'copyright_text',
-                    'priority'   => 10,
-                    'section'    => 'ect-footer',
-                    'type'       => 'text',
-        )));
-
-        $wp_customize->add_control(
-            new WP_Customize_Color_Control(
-                $wp_customize, 'footer_bg', 
-                array(
-                    'label' => __( 'Background Color', 'theme_textdomain' ),
-                    'section' => 'ect-footer',
-        )));             
+        ));  
 
         //Control
         //Instragram
@@ -240,46 +164,6 @@ class Flowyth_Customizer extends flowyth\Main {
                     'settings' => 'enable_tiktok'
         )));
 
-        $wp_customize->add_control(
-            new WP_Customize_Color_Control(
-                $wp_customize, 'menu_item_text_color2', 
-                array(
-                    'label' => __('Menu Item Text Color', 'theme_textdomain'),
-                    'section' => 'ect-footer',
-        )));
-
-        $wp_customize->add_control(
-            new WP_Customize_Color_Control(
-                $wp_customize, 'menu_item_hover_color2', 
-                array(
-                    'label' => __('Menu Item Hover Color', 'theme_textdomain'),
-                    'section' => 'ect-footer',
-        )));
-
-        $wp_customize->add_control(
-            new WP_Customize_Color_Control(
-                $wp_customize, 'social_icon_color', 
-                array(
-                    'label' => __('Social Media Icon Color', 'theme_textdomain'),
-                    'section' => 'ect-footer',
-        )));
-
-        $wp_customize->add_control(
-            new WP_Customize_Color_Control(
-                $wp_customize, 'social_icon_hover_color', 
-                array(
-                    'label' => __('Social Media Icon Hover Color', 'theme_textdomain'),
-                    'section' => 'ect-footer',
-        )));
-
-        $wp_customize->add_control(
-            new WP_Customize_Color_Control(
-                $wp_customize, 'copyright_text_color', 
-                array(
-                    'label' => __('Copyright Text Color', 'theme_textdomain'),
-                    'section' => 'ect-footer',
-        )));
-
         $wp_customize->add_control('flowy_footer_company_name', array(
             'label'    => __( 'Company Name', 'flowy' ),
             'section'  => 'ect-footer', // Or your custom section
@@ -292,7 +176,19 @@ class Flowyth_Customizer extends flowyth\Main {
             'section'  => 'ect-footer', // Or your custom section
             'settings' => 'flowy_footer_company_description',
             'type'     => 'textarea', // Defines it as a textarea
-        ));                
+        ));        
+
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize, 'copyright_text',
+                array(
+                    'label'      => __( 'Copyright Text', 'textdomain' ),
+                    // 'description' => __( '....', 'textdomain' ),
+                    'settings'   => 'copyright_text',
+                    'priority'   => 10,
+                    'section'    => 'ect-footer',
+                    'type'       => 'text',
+        )));                       
 	}
 
 	public static function generalSettings($wp_customize) {
@@ -303,29 +199,10 @@ class Flowyth_Customizer extends flowyth\Main {
         $wp_customize->add_section(
             'ect-general',
             array(
-                'title' => __('General Settings', '_s'),
+                'title' => __('Layout & Colors', '_s'),
                 'priority' => 140,
                 // 'description' => __('', '_s' )
-        ));
-
-
-        // $wp_customize->add_setting(
-        //     'custom_logo3',
-        //     array(
-        //         'default' => '230',
-        //         'type' => 'option', // you can also use 'theme_mod'
-        //         'capability' => 'edit_theme_options'
-        // ));
-
-        // $wp_customize->add_control(
-        //     new WP_Customize_Media_Control(
-        //         $wp_customize, 'custom_logo3', 
-        //         array(
-        //             'label' => __('Site Logo', 'theme_textdomain'),
-        //             'section' => 'ect-general',
-        //             'mime_type' => 'image',
-        // )));    
-
+        )); 
 
         $wp_customize->add_control(
             new WP_Customize_Control(
@@ -405,7 +282,7 @@ class Flowyth_Customizer extends flowyth\Main {
             'ect-homepage-content',
             array(
                 'title' => __('Homepage Content', '_s'),
-                'priority' => 139,
+                'priority' => 138,
                 // 'description' => __('', '_s' )
         ));
 
@@ -730,10 +607,9 @@ class Flowyth_Customizer extends flowyth\Main {
 	public static function customizeTheme($wp_customize) {
 		//https://developer.wordpress.org/themes/customize-api/customizer-objects/
 		self::socialMedia($wp_customize);
-		self::headerSettings($wp_customize);
 		self::footerSettings($wp_customize);
-		self::generalSettings($wp_customize);
         self::homepageContent($wp_customize);
 		self::themeOptions($wp_customize);
+        self::generalSettings($wp_customize);
 	}	
 }

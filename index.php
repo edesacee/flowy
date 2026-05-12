@@ -19,31 +19,18 @@ global $flowyth_dir;
 
 $flowyth_dir = get_template_directory_uri();
 
-
-global $post;
-
 ?>
-
 <main id="theme-content">
 	<div class="content-wrap"><?php
-if ( is_front_page() && is_home() ) {
-  // HOME PAGE IS SET TO LATEST POST
-	get_template_part( 'template-parts/home' );
-}
-else if (is_home()) {
-	$blog_page_id = get_option('page_for_posts');
+
+if ((is_front_page() && is_home()) || is_home()) {
 	get_template_part( 'template-parts/archive' );
 }
+else if (is_front_page() && !is_home()) {
+	get_template_part( 'template-parts/home' );
+}
 else if ( is_singular() ) {
-	$front_page_id = get_option('page_on_front');
-
-	if ($front_page_id == $post->ID) {
-		get_template_part( 'template-parts/home' );
-	}
-	else {
-		get_template_part( 'template-parts/single' );
-	}
-	
+	get_template_part( 'template-parts/single' );
 }
 elseif ( is_archive() ) {
 	get_template_part( 'template-parts/archive' );

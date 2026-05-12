@@ -24,7 +24,7 @@ if ($intro_feat_image_id) {
 	$intro_feat_image = wp_get_attachment_image_url($intro_feat_image_id, 'large');
 }
 else {
-	$intro_feat_image = get_bloginfo('wpurl') . '/wp-content/themes/' . $theme_slug . '/images/web-dev-office.jpg';
+	$intro_feat_image = get_bloginfo('wpurl') . '/wp-content/themes/' . $theme_slug . '/images/web-dev-office.webp';
 }
 $intro_image_alt_text = get_theme_mod('flowy_intro_image_alt', $intro_title);
 
